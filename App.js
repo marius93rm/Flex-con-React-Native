@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import Toggle from './components/Toggle';
+
 export default function App() {
 
   const [flexDirection, setFlexDirection] = useState('row');
@@ -14,16 +16,25 @@ export default function App() {
 
   return (
 
+
     <View style={styles.container}>
+
+      <Toggle label="flexDirection" value={flexDirection} options={flexDirectionOptions} onChange={
+        (option) => setFlexDirection(option)
+        }></Toggle>
+      <Toggle label="justifyContent" value={justifyContent} options={justifyContentOptions} onChange={
+        (option) => setJustifyContent(option)
+        }></Toggle>
+      <Toggle label="alignItems" value={alignItems} options={alignItemsOptions} onChange={
+        (option) => setAlignItems(option)
+        }></Toggle>
+
       <View style={[styles.layout, layoutStyle]}>
         <View style={styles.box} />
         <View style={styles.box} />
         <View style={styles.box} />
       </View>
     </View>
-
-    //bottoni che attivano o disattivano i vari flex
-
 
   );
 }
